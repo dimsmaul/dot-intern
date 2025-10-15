@@ -57,7 +57,7 @@ const CountDown: React.FC<ICountDownProps> = (props) => {
           className
         )}
       >
-        <div className="text-base font-bold">{formatTime(timeLeft)}</div>
+        <div className="">{formatTime(timeLeft)}</div>
       </div>
     </div>
   );

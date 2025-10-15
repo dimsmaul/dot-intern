@@ -34,7 +34,7 @@ export interface IQuestionHandle {
 export const useQuestionHandle = create<IQuestionHandle>()(
   persist(
     (set) => ({
-      duration: 10,
+      duration: 1,
       startTime: null,
       setMetadata: (duration: number, startTime: number) =>
         set({ duration, startTime }),
@@ -61,7 +61,7 @@ export const useQuestionHandle = create<IQuestionHandle>()(
 
       resetForm: () =>
         set({
-          duration: 10,
+          duration: 1,
           startTime: null,
           score: 0,
           currentQuestionIndex: 0,

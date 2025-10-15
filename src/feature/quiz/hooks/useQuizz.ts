@@ -57,7 +57,7 @@ export const useQuizz = () => {
     }
 
     const start = Date.now();
-    setMetadata(10, start);
+    setMetadata(1, start);
     navigate("/quiz/attempt");
   };
 

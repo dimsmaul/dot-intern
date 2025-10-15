@@ -12,7 +12,7 @@ const QuizOverview: React.FC = () => {
   const quizzes = [
     {
       label: "Duration",
-      value: cn(duration || 10, "minutes"),
+      value: cn(duration || 1, "minutes"),
     },
     {
       label: "Number of Questions",
