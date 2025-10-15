@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { useAuthStore } from "@/store/useAuthStore";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const useSignIn = () => {
   const { setToken } = useAuthStore();
@@ -40,16 +41,9 @@ const formSchema = z.object({
 });
 
 const loginUser = async (body: { email: string; password: string }) => {
-  const response = await fetch(import.meta.env.VITE_AUTH_API + "dot-intern", {
-    method: "POST",
-    body: JSON.stringify(body),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-
-  if (!response.ok) throw new Error("Failed to login");
-
-  const data = await response.json();
-  return data.data;
+  const response = await axios.post(
+    import.meta.env.VITE_AUTH_API + "dot-intern",
+    body
+  );
+  return response.data.data;
 };

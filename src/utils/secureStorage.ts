@@ -1,18 +1,22 @@
+import { decrypt, encrypt } from "./encrypt";
+
 export const secureStorage = {
-  getItem: (key: string) => {
-    const item = localStorage.getItem(key);
-    return item;
+  getItem(key: string) {
+    const value = localStorage.getItem(key);
+    const decryptedVal = value ? decrypt(value) : null;
+    return decryptedVal ? JSON.parse(decryptedVal) : null;
   },
 
-  setItem: (key: string, value: string) => {
-    localStorage.setItem(key, value);
+  setItem(key: string, value: string | object) {
+    const encryptedVal = encrypt(JSON.stringify(value));
+    localStorage.setItem(key, encryptedVal);
   },
 
-  removeItem: (key: string) => {
+  removeItem(key: string) {
     localStorage.removeItem(key);
   },
 
-  clear: () => {
+  clearItem() {
     localStorage.clear();
   },
 };
