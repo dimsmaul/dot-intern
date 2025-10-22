@@ -1,4 +1,3 @@
-import NotFound from "@/components/404";
 import Loaders from "@/components/loaders";
 import BaseLayouts from "@/layouts/base";
 import React, { Suspense } from "react";
@@ -38,9 +37,5 @@ export const AuthRoute: RouteObject[] = [
         ),
       },
     ],
-  },
-  {
-    path: "*",
-    element: <NotFound href="/quiz" />,
   },
 ];

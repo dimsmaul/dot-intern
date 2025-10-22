@@ -1,4 +1,3 @@
-import NotFound from "@/components/404";
 import Loaders from "@/components/loaders";
 import React, { Suspense } from "react";
 import { type RouteObject } from "react-router-dom";
@@ -13,10 +12,5 @@ export const UnauthRoute: RouteObject[] = [
         <SignIn />
       </Suspense>
     ),
-  },
-
-  {
-    path: "*",
-    element: <NotFound href="/" />,
   },
 ];
